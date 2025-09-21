@@ -3,11 +3,12 @@ from core.utils import *
 from threading import Thread
 from subprocess import getoutput
 import netifaces as ni
-from scapy.all import ARP, Ether, srp
+from scapy.all import ARP, Ether, srp, TCP, IP, sr
 from pylaunch.dial import Dial
 import time
 import pychromecast
 import zeroconf
+import re
 from pychromecast.controllers.youtube import YouTubeController
 # Created by Mater #
 class PWNmaters(BasePwnhyvePlugin):
@@ -73,18 +74,29 @@ class PWNmaters(BasePwnhyvePlugin):
         tpil.clear()
         terminal.addText(f"Your IP address: {ip_address}\n")
         terminal.addText(f"Base IP: {base_ip}.0/24")
-        
-        tpil.waitForKey()
-        
+        terminal.addText(f"This may take a while, please wait...\n")
         terminal.text = ""
-        
-
-        ans, unans = srp(Ether(dst="ff:ff:ff:ff:ff:ff")/ARP(pdst=f"{base_ip}.0/24"), timeout=2)
-        terminal.addText("Discovered devices:\n")
+        ans, unans = srp(Ether(dst="ff:ff:ff:ff:ff:ff")/ARP(pdst="192.168.0.0/24"), timeout=2)
+        common_ports = [21,22,23,25,53,80,110,135,139,143,443,445,993,995,1433,1521,3306,3389,5900,8080]
         for snd, rcv in ans:
-            terminal.addText(f"IP: {rcv.psrc} - MAC: {rcv.hwsrc}\n")
-            tpil.waitForKey()
-            terminal.text = ""
+            print(f"IP: {rcv.psrc} - MAC: {rcv.hwsrc}")
+            try:
+                res, unans = sr(IP(dst=rcv.psrc)/TCP(flags="S", dport=common_ports), timeout=2, verbose=0)
+                open_ports = []
+                for s, r in res:
+                    if r.haslayer(TCP) and r[TCP].flags == 0x12:  
+                        open_ports.append(s[TCP].dport)
+                if open_ports:
+                    print(f"Open ports on {rcv.psrc}: {open_ports}")
+                    terminal.addText(f"{rcv.psrc} - Open ports: {open_ports}\n")
+
+                tpil.waitForKey()
+                terminal.text = ""
+            except Exception as e:
+                print(e)
+                terminal.addText(f"Error scanning {rcv.psrc}\n")
+                tpil.waitForKey()
+                terminal.text = ""
         return
     # I am unable to kill the server properly, if you can find a fix let me know #
     def ShareHandShakes(tpil):
