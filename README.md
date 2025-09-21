@@ -1,2 +1,2 @@
 # pwnhyve-plugins
-Some plugins I've wrote for pwnhyve, with several new functions added to the functionality of the device. 
+You need a wifi adapter for hcxdumptool the default is wlan1
