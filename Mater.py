@@ -59,8 +59,7 @@ class PWNmaters(BasePwnhyvePlugin):
         process.start()
         terminal.addText("Wait a bit then press any key")
         tpil.waitForKey()
-    # TODO add more options to this function #
-    # TODO add more info on the devices found, ports, services, etc... #
+    
     def Discover(tpil):
         """Discover devices on the network using arp packets"""
         terminal = tpil.gui.screenConsole()
