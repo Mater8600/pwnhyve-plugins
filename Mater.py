@@ -65,7 +65,7 @@ class PWNmaters(BasePwnhyvePlugin):
         terminal = tpil.gui.screenConsole()
         terminal.addText("This plugin will use arp packets to discover devices on the network\nPress any key to continue...\n")
         tpil.waitForKey()
-        
+        ### You have to sometimes hit the key twice or more because the arp scan returns non-scannable devices ###
         terminal.text = ""
         
         ip_address = ni.ifaddresses("wlan0")[ni.AF_INET][0]['addr']
@@ -151,5 +151,7 @@ class PWNmaters(BasePwnhyvePlugin):
         terminal.addText("Done targeting dial and chromecast devices :)")
         tpil.waitForKey()
         return
+    
+
 
    
