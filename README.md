@@ -1,6 +1,6 @@
 # 🔐 Mater's Plugin Suite
 
-A modular plugin set for **PwnHyve** designed to assist with wireless handshake capture, device discovery, and network casting.  
+A modular plugin set for **PwnHyve** (https://github.com/whatotter/pwnhyve) designed to assist with wireless handshake capture, device discovery, and network casting.  
 This suite offers a mix of offensive and utility tools for wireless auditing and local network interaction.
 
 ---
