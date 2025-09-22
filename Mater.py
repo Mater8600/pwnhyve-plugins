@@ -30,7 +30,8 @@ class PWNmaters(BasePwnhyvePlugin):
 
         # go into monitor mode #
         getoutput(f"sudo airmon-ng start {interface}")
-        cmd = f"sudo hcxdumptool -i {interface}mon  -w /root/pwnhyve/handshakes/output.pcapng"
+        # I set it to the most common channels cause hopping takes forever #
+        cmd = f"sudo hcxdumptool -i {interface}mon  -c 1,6,11 -w /root/pwnhyve/handshakes/output.pcapng"
         terminal.addText("Press any key to stop\n")
         process = Thread(target=getoutput, args=(cmd,))
         process.start()
