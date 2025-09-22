@@ -97,7 +97,7 @@ class PWNmaters(BasePwnhyvePlugin):
     def Share_Handshakes(tpil):
         """Share handshakes using a simple http server"""
         terminal = tpil.gui.screenConsole()
-        terminal.addText("Starting a http server on port 12969 to share handshakes\n")
+        terminal.addText("Starting a http server on port 12969 to share handshakes\nPress any key to exit \n(restart pwnhyve to fully stop the server)\n")
         
         cmd = "python3 -m http.server -d /root/pwnhyve/handshakes/ 12969"
         process = Thread(target=getoutput,args=(cmd,))
