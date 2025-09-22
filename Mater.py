@@ -55,7 +55,7 @@ class PWNmaters(BasePwnhyvePlugin):
         process.start()
         terminal.addText("Wait a bit then press any key")
         tpil.waitForKey()
-    
+    # The port scanning is slow but it works, needs more work #s
     def Discover_and_Scan(tpil):
         """Discover devices on the network using arp packets"""
         terminal = tpil.gui.screenConsole()
@@ -94,7 +94,7 @@ class PWNmaters(BasePwnhyvePlugin):
                 terminal.text = ""
         return
     # I am unable to kill the server properly, if you can find a fix let me know #
-    def ShareHandShakes(tpil):
+    def Share_Handshakes(tpil):
         """Share handshakes using a simple http server"""
         terminal = tpil.gui.screenConsole()
         terminal.addText("Starting a http server on port 12969 to share handshakes\n")
@@ -102,14 +102,14 @@ class PWNmaters(BasePwnhyvePlugin):
         cmd = "python3 -m http.server -d /root/pwnhyve/handshakes/ 12969"
         process = Thread(target=getoutput,args=(cmd,))
         process.start()
-        terminal.text = ""
-        terminal.addText("finished starting server restart to stop\nPress any key to exit...")
+        
         tpil.waitForKey()
 
         getoutput("pkill http.server")
         
         return
-    # I dont know if the dial protcol is working properly, open an issue if you can test this #
+    # I dont know if the dial protocol is working properly, open an issue if you can test this #
+    # The chromecast part works fine #
     def Cast(tpil):
         """Cast to all tvs on your network"""
         terminal =tpil.gui.screenConsole()
@@ -144,10 +144,10 @@ class PWNmaters(BasePwnhyvePlugin):
                 browser2.stop_discovery()
 
         terminal.text = ""
-        terminal.addText("Done targeting dial and chromecast devices :)")
+        terminal.addText("Never gonna give you up has been sent to all tvs on your network\nPress any key to exit...")
         tpil.waitForKey()
         return
     
-
-
+    
+    
    
