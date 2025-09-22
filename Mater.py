@@ -51,8 +51,7 @@ class PWNmaters(BasePwnhyvePlugin):
         terminal.addText("Converting all files in handshake folder")
         
         cmd = "hcxpcapngtool /root/pwnhyve/handshakes/* -o handshakes"
-        process = Thread(target=getoutput, args=(cmd,))
-        process.start()
+        getoutput(cmd)
         terminal.addText("Wait a bit then press any key")
         tpil.waitForKey()
     # The port scanning is slow but it works, needs more work #s
