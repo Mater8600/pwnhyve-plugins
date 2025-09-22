@@ -12,7 +12,7 @@ import re
 from pychromecast.controllers.youtube import YouTubeController
 # Created by Mater #
 class PWNmaters(BasePwnhyvePlugin):
-    def matertest(tpil):
+    def testplugin(tpil):
         terminal = tpil.gui.screenConsole()
         terminal.addText("This is a test plugin, if you see this, it works!!!!\nPress any key to exit...")
         tpil.waitForKey()
@@ -26,10 +26,6 @@ class PWNmaters(BasePwnhyvePlugin):
         tpil.clear()
         terminal.text = ""
         interface = "wlan1"
-        if interface == None:
-            terminal.addText("No wireless interface found, exiting...\n")
-            tpil.waitForKey()
-            return
         terminal.addText(f"Using wireless interface: {interface}\n")
 
         # go into monitor mode #
@@ -60,7 +56,7 @@ class PWNmaters(BasePwnhyvePlugin):
         terminal.addText("Wait a bit then press any key")
         tpil.waitForKey()
     
-    def Discover(tpil):
+    def Discover_and_Scan(tpil):
         """Discover devices on the network using arp packets"""
         terminal = tpil.gui.screenConsole()
         terminal.addText("This plugin will use arp packets to discover devices on the network\nPress any key to continue...\n")
