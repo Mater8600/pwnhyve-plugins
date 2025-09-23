@@ -110,7 +110,7 @@ class PWNmaters(BasePwnhyvePlugin):
         
         return
     # I dont know if the dial protocol is working properly, open an issue if you can test this #
-    # The chromecast part works fine #
+    # The chromecast part works fine and it even turns on tvs with chromecast in it! #
     def Cast(tpil):
         """Cast to all tvs on your network"""
         terminal =tpil.gui.screenConsole()
