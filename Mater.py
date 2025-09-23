@@ -98,9 +98,9 @@ class PWNmaters(BasePwnhyvePlugin):
         """Share handshakes using a simple http server"""
         ip_address = ni.ifaddresses("wlan0")[ni.AF_INET][0]['addr']
         terminal = tpil.gui.screenConsole()
-        terminal.addText(f"Starting a http server at {ip_address}:12969 to share handshakes\nPress any key to exit \n(restart pwnhyve to fully stop the server)\n")
+        terminal.addText(f"Starting a http server at {ip_address}:8888 to share handshakes\nPress any key to exit \n(restart pwnhyve to fully stop the server)\n")
         
-        cmd = "python3 -m http.server -d /root/pwnhyve/handshakes/ 12969"
+        cmd = "python3 -m http.server -d /root/pwnhyve/handshakes/ 8888"
         process = Thread(target=getoutput,args=(cmd,))
         process.start()
         
@@ -114,7 +114,7 @@ class PWNmaters(BasePwnhyvePlugin):
     def Cast(tpil):
         """Cast to all tvs on your network"""
         terminal =tpil.gui.screenConsole()
-        terminal.addText("This module can cast to all tvs on your network\nUSE WITH CAUTION!")
+        terminal.addText("This module can cast to all tvs on your network\nUSE WITH CAUTION!\nPress any key to continue...")
         tpil.waitForKey()
         d = Dial.discover()
         
