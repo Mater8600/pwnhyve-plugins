@@ -51,7 +51,7 @@ class PWNmaters(BasePwnhyvePlugin):
         terminal = tpil.gui.screenConsole()
         terminal.addText("Converting all files in handshake folder")
         
-        cmd = "sudo hcxpcapngtool /root/pwnhyve/handshakes/* -o handshakes"
+        cmd = "sudo hcxpcapngtool /root/pwnhyve/handshakes/* -o /root/pwnhyve/handshakes/handshakes.22000"
         getoutput(cmd)
         terminal.addText("Wait a bit then press any key")
         tpil.waitForKey()
