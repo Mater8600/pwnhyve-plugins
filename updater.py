@@ -5,7 +5,7 @@ from threading import Thread
 from subprocess import getoutput
 class PWNmaters(BasePwnhyvePlugin):
     def Update_Maters_Plugins(tpil):
-        terminal = tpil.gui.ScreenConsole()
+        terminal = tpil.gui.screenConsole()
         terminal.addText("This module will update all of Mater's plugins for you :)\nPress any key to continue")
         tpil.waitForKey()
         try:
