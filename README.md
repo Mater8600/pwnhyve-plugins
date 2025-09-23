@@ -13,6 +13,7 @@ This suite offers a mix of offensive and utility tools for wireless auditing and
 - Share captured handshakes via HTTP
 - Cast YouTube videos to all TVs on your network
 - Test plugin functionality with a simple console message
+- Updates with a seperate plguin
 
 ---
 
@@ -71,6 +72,12 @@ Casts a YouTube video to all TVs on the network.
 - 🎬 Launches YouTube with video ID `dQw4w9WgXcQ`
 
 ---
+
+### Update
+Updates the plugins
+- ⬇️ Downloads this repository with git
+- ❌ Removes unnecessary files
+- ❗You must create a update folder in the plugins directory
 
 ## 🛠️ Requirements
 
