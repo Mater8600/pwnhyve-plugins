@@ -3,8 +3,8 @@ from core.plugin import BasePwnhyvePlugin
 from core.utils import *
 from threading import Thread
 from subprocess import getoutput
-class PWNmaters(BasePwnhyvePlugin):
-    def Update_Maters_Plugins(tpil):
+class PWNupdater(BasePwnhyvePlugin):
+    def Maters_Plugins(tpil):
         terminal = tpil.gui.screenConsole()
         terminal.addText("This module will update all of Mater's plugins for you :)\nPress any key to continue")
         tpil.waitForKey()
