@@ -148,7 +148,15 @@ class PWNmaters(BasePwnhyvePlugin):
         terminal.addText("Never gonna give you up has been sent to all tvs on your network\nPress any key to exit...")
         tpil.waitForKey()
         return
-    
+    def Delete_Pcap(tpil):
+        """Delete all pcap files in the handshake folder"""
+        terminal = tpil.gui.screenConsole()
+        terminal.addText("This will delete all pcap files in the handshake folder\nPress any key to continue...")
+        tpil.waitForKey()
+        getoutput("rm /root/pwnhyve/handshakes/output*")
+        terminal.addText("All pcap files deleted\nPress any key to exit...")
+        tpil.waitForKey()
+        return
     
     
    
