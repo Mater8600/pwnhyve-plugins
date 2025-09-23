@@ -57,7 +57,7 @@ Discovers devices on the local network using ARP packets.
 ### Share Handshakes
 Shares handshake files via a simple HTTP server.
 
-- 🌍 Starts a Python HTTP server on port `12969`  
+- 🌍 Starts a Python HTTP server on port `8888`  
 - 📁 Serves `/root/pwnhyve/handshakes/`  
 - 🛑 Attempts to kill server with `pkill http.server`
 
