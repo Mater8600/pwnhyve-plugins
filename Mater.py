@@ -36,11 +36,10 @@ class PWNmaters(BasePwnhyvePlugin):
         process = Thread(target=getoutput, args=(cmd,))
         process.start()
         tpil.waitForKey()
-        tpil.clear()
+        terminal.text = ""
         getoutput("pkill hcxdumptool")
         process.join()
-        
-        terminal.addText("Capture stopped. Handshakes saved to this folder\nPress any key to exit...")
+        terminal.addText("Capture stopped. Handshakes saved to /root/pwnhyve/handshakes\nPress any key to exit...")
         tpil.waitForKey()
         
         return
