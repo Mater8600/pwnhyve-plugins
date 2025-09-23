@@ -1,5 +1,4 @@
 # this will delete all of the plugins and replace them with newer versions #
-from inspect import getcoroutinelocals
 from core.plugin import BasePwnhyvePlugin
 from core.utils import *
 from threading import Thread
@@ -14,6 +13,7 @@ class PWNmaters(BasePwnhyvePlugin):
             getoutput("git clone https://github.com/Mater8600/pwnhyve-plugins.git /root/pwnhyve/addons/plugins/Mater")
             getoutput("rm -r /root/pwnhyve/addons/plugins/Mater/.git")
             getoutput("rm /root/pwnhyve/addons/plugins/Mater/README.md")
+            getoutput("rm /root/pwnhyve/addons/plugins/Mater/updater.py")
 
         except:
             terminal.text = ""
