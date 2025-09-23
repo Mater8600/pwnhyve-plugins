@@ -156,6 +156,15 @@ class PWNmaters(BasePwnhyvePlugin):
         terminal.addText("All pcap files deleted\nPress any key to exit...")
         tpil.waitForKey()
         return
+    def Delete_Hash(tpil):
+        """Delete all hash files in the handshake folder"""
+        terminal = tpil.gui.screenConsole()
+        terminal.addText("This will delete all hash files in the handshake folder\nPress any key to continue...")
+        tpil.waitForKey()
+        getoutput("rm /root/pwnhyve/handshakes/handshakes*")
+        terminal.addText("All hash files deleted\nPress any key to exit...")
+        tpil.waitForKey()
+        return
     
     
    
