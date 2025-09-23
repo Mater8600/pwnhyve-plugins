@@ -14,14 +14,14 @@ from pychromecast.controllers.youtube import YouTubeController
 class PWNmaters(BasePwnhyvePlugin):
     def testplugin(tpil):
         terminal = tpil.gui.screenConsole()
-        terminal.addText("This is a test plugin, if you see this, it works!!!!\nPress any key to exit...")
+        terminal.addText("This is a test plugin\nWhile I have you here thanks for downloading Mater's utils!\nPress any key to exit...")
         tpil.waitForKey()
         return
     # This function is pretty good, needs more customization for ease of use #
     def hcxdumptool(tpil):
         """Capture handshakes using hcxdumptool"""
         terminal = tpil.gui.screenConsole()
-        terminal.addText("This plugin will run hcxdumptool to capture handshakes\nPress any key to continue...\n")
+        terminal.addText("WARNING THIS TOOL SHOULD BE USED RESPONSIBLY\nUSE AT YOUR OWN RISK\nPress any key to continue...\n")
         tpil.waitForKey()
         tpil.clear()
         terminal.text = ""
@@ -30,7 +30,7 @@ class PWNmaters(BasePwnhyvePlugin):
 
         # go into monitor mode #
         getoutput(f"sudo airmon-ng start {interface}")
-        # I set it to the most common channels cause hopping takes forever -- reverted this because it causes issues#
+        # I set it to the most common channels cause hopping takes forever -- reverted this because it causes issues rn using default#
         cmd = f"sudo hcxdumptool -i {interface}mon  -w /root/pwnhyve/handshakes/output.pcapng"
         terminal.addText("Press any key to stop\n")
         process = Thread(target=getoutput, args=(cmd,))
@@ -45,7 +45,7 @@ class PWNmaters(BasePwnhyvePlugin):
         
         return
     
-    # Something that is working properly #
+    
     def Convert_Handshakes(tpil):
         """Convert all handshakes in the handshake folder to a hashcat readable format"""
         terminal = tpil.gui.screenConsole()
@@ -55,7 +55,7 @@ class PWNmaters(BasePwnhyvePlugin):
         getoutput(cmd)
         terminal.addText("Wait a bit then press any key")
         tpil.waitForKey()
-    # The port scanning is slow but it works, needs more work #s
+    # The port scanning is slow but it works, needs more work #
     def Discover_and_Scan(tpil):
         """Discover devices on the network using arp packets"""
         terminal = tpil.gui.screenConsole()
@@ -98,7 +98,7 @@ class PWNmaters(BasePwnhyvePlugin):
         """Share handshakes using a simple http server"""
         ip_address = ni.ifaddresses("wlan0")[ni.AF_INET][0]['addr']
         terminal = tpil.gui.screenConsole()
-        terminal.addText(f"Starting a http server at {ip_address}:8888 to share handshakes\nPress any key to exit \n(restart pwnhyve to fully stop the server)\n")
+        terminal.addText(f"Starting a http server at {ip_address}:8888 to share handshakes\nPress any key to exit")
         
         cmd = "python3 -m http.server -d /root/pwnhyve/handshakes/ 8888"
         process = Thread(target=getoutput,args=(cmd,))
