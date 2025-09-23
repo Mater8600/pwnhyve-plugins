@@ -12,11 +12,6 @@ import re
 from pychromecast.controllers.youtube import YouTubeController
 # Created by Mater #
 class PWNmaters(BasePwnhyvePlugin):
-    def testplugin(tpil):
-        terminal = tpil.gui.screenConsole()
-        terminal.addText("This is a test plugin\nWhile I have you here thanks for downloading Mater's utils!\nPress any key to exit...")
-        tpil.waitForKey()
-        return
     # This function is pretty good, needs more customization for ease of use #
     def hcxdumptool(tpil):
         """Capture handshakes using hcxdumptool"""
@@ -165,6 +160,17 @@ class PWNmaters(BasePwnhyvePlugin):
         terminal.addText("All hash files deleted\nPress any key to exit...")
         tpil.waitForKey()
         return
+    def About(tpil):
+        """About Mater's utils"""
+        terminal = tpil.gui.screenConsole()
+        terminal.addText("Mater's utils v1.3\nCreated by Mater8600\nThanks for downloading!\nPress any key to exit...")
+        tpil.waitForKey()
+        return
     
-    
+    def reboot(tpil):
+        """Reboot the system"""
+        terminal = tpil.gui.screenConsole()
+        terminal.addText("Rebooting the system...")
+        getoutput("reboot")
+        return
    
