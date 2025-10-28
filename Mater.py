@@ -47,11 +47,12 @@ class PWNmaters(BasePwnhyvePlugin):
         
         cmd = "sudo hcxpcapngtool /root/pwnhyve/handshakes/* -o /root/pwnhyve/handshakes/handshakes.22000"
         getoutput(cmd)
-        terminal.addText("Wait a bit then press any key")
+        terminal.addText("Done converting the .pcaps to hashes")
         tpil.waitForKey()
     # The port scanning is slow but it works, needs more work #
     def Discover_and_Scan(tpil):
         """Discover devices on the network using arp packets"""
+        # THIS IS AWFUL NEED TO FIX THIS #
         terminal = tpil.gui.screenConsole()
         terminal.addText("This plugin will use arp packets to discover devices on the network\nPress any key to continue...\n")
         tpil.waitForKey()
